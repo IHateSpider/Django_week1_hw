@@ -5,7 +5,7 @@
 ---
 ## Week1
 
-以下是我的heroku網站連結：https://third-josh-ya.herokuapp.com/
+以下是我的heroku網站連結：https://joshhelloworld.herokuapp.com/
 
 **新增了新的view** 
 
