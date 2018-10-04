@@ -7,3 +7,12 @@ from django.contrib.auth.models import User
 
 def index(request):
 	return render(request, 'guestbookver1.html')
+    
+def add(request):
+   # c = int(a) + int(b)
+    #return HttpResponse(str(c))
+    return HttpResponse("https://picsum.photos/200/200?image=87")
+    
+def guestbookver1(request):
+    fuck = u"fuck"
+    return render(request, 'guestbookver1.html', {'fuck': fuck})
