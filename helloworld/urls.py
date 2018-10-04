@@ -22,7 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index)
 ]
-'''
+
 urlpatterns = patterns('',
     url(r'^add/$', 'app.views.add', name='add'),
 )
+'''
