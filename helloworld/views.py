@@ -4,10 +4,9 @@ from django.contrib import auth
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 
-
+'''
 def index(request):
-	return render(request, 'guestbookver1.html')
-'''    
+	return render(request, 'guestbookver1.html')   
 def add(request):
    # c = int(a) + int(b)
     #return HttpResponse(str(c))
