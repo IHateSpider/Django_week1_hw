@@ -14,5 +14,8 @@ def add(request):
     return HttpResponse("https://picsum.photos/200/200?image=87")
 ''' 
 def guestbookver1(request):
-    fuck = "fuck"
-    return render(request, 'guestbookver1.html', {'fuck': "fuck"})
+    #fuck = "fuck"
+    l = []
+    for i in range(100):
+        l.append("https://picsum.photos/200/200?image="+str(i))
+    return render(request, 'guestbookver1.html', {"fuck": l})
