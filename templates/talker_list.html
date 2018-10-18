@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title> talker </title>
+        <meta charset='utf-8'>
+    </head>
+    <body>
+        <h2>發言人列表</h2>
+        <form action="/menu/" method="get">
+        <table>
+            <tr>
+                <th>暱稱</th>
+                
+            </tr>
+            {% for msg in msgs %}
+                <tr>
+                    <td> <input type="radio" name="id" value="{{msgs.id}}> </td>
+                    <td> {{ msg.talker }} </td>
+                    
+                </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" value="看發言">
+        </form>
+    </body>
+</html>

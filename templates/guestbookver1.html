@@ -8,6 +8,8 @@
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
 </head>
 <body>
+    <p>you are now at {{path}}</p>
+
     <!--
     {% for i in fuck %}
         <img src= {{i}}>
@@ -23,32 +25,23 @@
     <div id="container">
         <div id="content">
         
+        
+      
+        
             {% for msg in msgs %}
                 <div class = "msg">
-                    {{msg.talker}}
+                    <span class="name">{{msg.talker}}</span>
+                    {{msg.message}}
+                    
                 <div>
             {% endfor %}
+          
             
-            
-        
-        <!--    
-            <div class="msg">
-                <span class="name">草地音樂祭</span>
-                已送交公關部進行拉贊
 
-            </div>
-            <div class="msg">
-                <span class="name">桌遊大會</span>
-                昨日已圓滿完成
-            </div>
-            <div class="msg">
-                <span class="name">院櫃租借事宜</span>
-                文案撰寫中
-            </div>
-        -->    
         </div>
+        
         <div id="send-box">
-            <form id="send-form">
+            <form action='' method='post' >
                 <input type="text" name="name" id="name" placeholder="專案名稱">
                 <input type="text" name="msg" id="msg" placeholder="進度">
                 <input type="submit" id="submit" value="送出">

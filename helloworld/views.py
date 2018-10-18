@@ -16,6 +16,27 @@ def add(request):
     #return HttpResponse(str(c))
     return HttpResponse("https://picsum.photos/200/200?image=87")
 ''' 
+def here(request):
+    return HttpResponse('嗨嗨嗨\\ ')
+    
+def math(request, a, b):
+    a = int(a)
+    b = int(b)
+    m = a*b
+    q = a//b
+    add = a + b
+    minus = a - b 
+    html = '<html>sum={add}<br>dif={minus}<br>pro={m}<br>quo={q}</html>'.format(add=add,minus=minus,m=m,q=q)
+    return HttpResponse(html)
+    
+
+    
+def welcome(request):
+    if 'user_name' in request.GET:
+        return HttpResponse('Welcome!~'+request.GET['user_name'])
+    else:
+        return render(request, 'welcome.html',locals())
+    
 def index(request):
     '''
     l = []
@@ -27,12 +48,17 @@ def index(request):
         l.append("https://picsum.photos/200/200?image="+str(i))
     return render(request, 'guestbookver1.html', {"fuck": l})
     '''
-    t1 = TextMessage.objects.create(talker='草地音樂祭', message='已送交公關部進行拉贊')
+    '''
+    t1 = TextMessage.objects.create(talker='ddd', message='ccc')
     t2 = TextMessage.objects.create(talker='桌遊大會', message='昨日已圓滿完成')
     t3 = TextMessage.objects.create(talker='院櫃租借事宜', message='文案撰寫中')
+    '''
+    path = request.path
     
+    
+    if 'name' in request.POST:
+        t = TextMessage.objects.create(talker = request.POST['name'], message = request.POST['msg'])
     msgs = TextMessage.objects.all()
-    
     return render(request, 'guestbookver1.html', locals())
 
     

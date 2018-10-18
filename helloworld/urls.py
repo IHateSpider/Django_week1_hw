@@ -16,9 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from django.conf.urls import include, url
+from guestbook.views import talker_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     ##path ('guestbook/', views.guestbook)
-    path('', views.index)
+    path('', views.index),
+    path('here/', views.here),
+    path( 'math/<int:a>/<int:b>/', views.math,),
+    path( 'welcome/', views.welcome ),
+    path( 'talker_list/', talker_list )
 ]
