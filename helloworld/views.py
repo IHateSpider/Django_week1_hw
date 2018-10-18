@@ -55,9 +55,10 @@ def index(request):
     '''
     path = request.path
     
-    
     if 'name' in request.POST:
         t = TextMessage.objects.create(talker = request.POST['name'], message = request.POST['msg'])
+    if 'clear' in request.POST:
+        TextMessage.objects.all().delete()
     msgs = TextMessage.objects.all()
     return render(request, 'guestbookver1.html', locals())
 
