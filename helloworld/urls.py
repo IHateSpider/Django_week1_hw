@@ -22,9 +22,14 @@ from guestbook.views import talker_list
 urlpatterns = [
     path('admin/', admin.site.urls),
     ##path ('guestbook/', views.guestbook)
+    path('index/', views.index),
     path('', views.index),
     path('here/', views.here),
     path( 'math/<int:a>/<int:b>/', views.math,),
     path( 'welcome/', views.welcome ),
-    path( 'talker_list/', talker_list )
+    path( 'talker_list/', talker_list ),
+    path( 'adduser/', views.adduser),
+    path( 'login/', views.login ),
+    path( 'logout/', views.logout ),
+    
 ]
