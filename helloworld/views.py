@@ -48,7 +48,7 @@ def adduser(request):
     
         if user != None:
             mes = user.username + '帳號已建立!'
-            return HttpResponse(mes)
+            return render(request, 'already_add.html',locals())
         else:
             user = User.objects.create_user( name, "jj@jj.com.tw", password )
             user.first_name="aa"
