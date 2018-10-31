@@ -76,12 +76,33 @@ def index(request):
     '''
     path = request.path
     #auth.logout(request)
-    if 'name' in request.POST:
-        t = TextMessage.objects.create(talker = request.POST['name'], message = request.POST['msg'])
+    user = request.user.username
+    if 'msg' in request.POST:
+        t = TextMessage.objects.create(talker = user, message = request.POST['msg'])
     if 'clear' in request.POST:
         TextMessage.objects.all().delete()
     msgs = TextMessage.objects.all()
     return render(request, 'guestbookver1.html', locals())
+    
+def personal_Page(request):
+    if request.method == 'POST':
+        user = request.user.username
+        if "search_key" in request.POST:
+            t_search = TextMessage.objects.filter(talker = user).filter( message__icontains = request.POST['search_key'])
+        #response_search_key = HttpResponse ( 'search_key' )
+        #response_data = HttpResponse ( 'data_searched' )
+        #t_search = request_data.COOKIES['data_searched']
+        #response_search_key.set_cookie( 'search_key', request.POST['search_key'] )
+        #response_data.set_cookie( 'data_searched', t_search )
+        if 'button_edit' in request.POST:
+            #t_search = request_data.COOKIES['data_searched']
+            t_search = t_search.update( message = request.POST[ 'edit' ])
+            
+        if 'button_delete' in request.POST:
+            #t_search = request.COOKIES['data_searched']
+            t_search = t_search.delete()
+            
+    return render( request, 'personal_Page.html', locals())
     
 def login(request):
     if 'username' in request.POST:

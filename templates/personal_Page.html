@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Week2Example留言板_personal_Page</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" charset="utf8" />
+</head>
+<body>
+    <p>you are now at {{path}}</p>
+    <p>Hello {{user}}, these are your messages</p>
+    <form action='.' method='POST'  name='form2'>
+        {% csrf_token %}
+        <div><input type='text' name="search_key" id="search_key" placeholder="查詢你想查詢的留言"/></div>
+        <div>
+            <input type='submit' name="button_search" id="button_search" value="查詢" />
+        </div>
+    </form>
+    <div id="content">
+        {% for msg in t_search %}
+        <div class = "msg">
+            <span class="name">{{msg.talker}}</span>{{msg.message}}<br>
+            <form action='.' method='POST'  name='form3'>
+                {% csrf_token %}
+                <div><input type='text' name="edit" id="edit" placeholder="編輯內容"/></div>
+                <div>
+                    <input type='submit' name="button_edit" id="button_edit" value="編輯" />
+                    <input type='submit' name="button_delete" id="button_delete" value="刪除" />
+                    編輯與刪除還無法使用
+                </div>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

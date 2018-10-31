@@ -34,14 +34,14 @@
         
             <div id="send-box">
                 <form action='' method='post' >
-                    <input type="text" name="name" id="name" placeholder="發言人">
-                    <input type="text" name="msg" id="msg" placeholder="說點東東">
+                    <span style="color:blue">{{user}}:  </span><input type="text" name="msg" id="msg" placeholder="說點東東">
                     <input type="submit" id="submit" value="送出">
                 </form>
                 <form action='' method='post' >
                     <input type="submit" name = "clear" id="clear" value="清除所有留言">
                 </form>
             </div>
+            <p><a href="/personal_Page/">個人頁面</a><p>
             <p><a href="/logout/">登出</a><p>
         {% else %}
             <p>你尚未登入喔!</p>

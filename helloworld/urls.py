@@ -31,5 +31,6 @@ urlpatterns = [
     path( 'adduser/', views.adduser),
     path( 'login/', views.login ),
     path( 'logout/', views.logout ),
+    path( 'personal_Page/', views.personal_Page ),
     
 ]
